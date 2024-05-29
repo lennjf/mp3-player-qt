@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>796</width>
+    <height>141</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>niko player</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(200, 219, 208);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="playbtn">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>90</y>
+      <width>90</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>play</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pausebtn">
+    <property name="geometry">
+     <rect>
+      <x>108</x>
+      <y>90</y>
+      <width>90</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+border-radius: 5px;
+color: rgb(240, 240,240);</string>
+    </property>
+    <property name="text">
+     <string>pause</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="homebtn">
+    <property name="geometry">
+     <rect>
+      <x>208</x>
+      <y>90</y>
+      <width>90</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>home</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="prebtn">
+    <property name="geometry">
+     <rect>
+      <x>308</x>
+      <y>90</y>
+      <width>90</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+border-radius: 5px;
+color: rgb(240, 240,240);</string>
+    </property>
+    <property name="text">
+     <string>pre</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="postbtn">
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>90</y>
+      <width>90</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>post</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="volume">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>105</y>
+      <width>271</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ed">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>795</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 800 16pt;</string>
+    </property>
+    <property name="frame">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QSlider" name="progress">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>10</y>
+      <width>793</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>SizeHorCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

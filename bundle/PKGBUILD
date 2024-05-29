@@ -1,0 +1,14 @@
+pkgname=niko
+pkgver=2.0
+pkgrel=2
+pkgdesc="niko player"
+arch=('any')
+
+package() {
+
+  install -Dm755 "/home/carpenter/tmp/tmp/niko/niko" -t "${pkgdir}/usr/bin"
+  install -D -m644 "/home/carpenter/tmp/tmp/niko/32x32.png" "${pkgdir}/usr/share/icons/hicolor/32x32/apps/niko.png"
+  install -D -m644 "/home/carpenter/tmp/tmp/niko/128x128.png" "${pkgdir}/usr/share/icons/hicolor/128x128/apps/niko.png"
+  install -D -m644 "/home/carpenter/tmp/tmp/niko/128x128@2x.png" "${pkgdir}/usr/share/icons/hicolor/128x128@2/apps/niko.png"
+  install -D -m644 "/home/carpenter/tmp/tmp/niko/niko.desktop" "${pkgdir}/usr/share/applications/niko.desktop"
+}
