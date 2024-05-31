@@ -113,23 +113,25 @@ void MainWindow::playtheaudio(){
     ui->volume->setValue(volumenum);
     mp->play();
     QFileInfo fileinfo(filename);
-    ui->ed->setText(fileinfo.fileName() + "  ...  " + QString::number(mp3index) + " of " + QString::number(musicList->size()) + "  ...");
+    ui->ed->setText(fileinfo.fileName() + "  ...  " + QString::number(mp3index + 1) + " of " + QString::number(musicList->size()) + "  ...");
 }
 
 
 void MainWindow::on_homebtn_clicked()
 {
     QString dir = QFileDialog::getExistingDirectoryUrl(this, "select a dir").toString().replace("file://", "");
-    settings->setValue("mp3dir", dir);
-    settings->setValue("mp3index", mp3index);
-    settings->setValue("volumenum", volumenum);
-    musicList->clear();
-    listFile(dir);
-    mp3dir = &dir;
-    // foreach (QString ml, musicList->toList()) {
-    //     qInfo() << "musiclist =++++++++ " << ml ;
-    // }
-    playtheaudio();
+    //qInfo() << "dirrrrrrr " << dir;
+    if(dir.isEmpty()){
+        return;
+    }else{
+        settings->setValue("mp3dir", dir);
+        settings->setValue("mp3index", mp3index);
+        settings->setValue("volumenum", volumenum);
+        musicList->clear();
+        listFile(dir);
+        mp3dir = &dir;
+        playtheaudio();
+    }
 }
 
 
