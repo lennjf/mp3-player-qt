@@ -2,10 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include<QtMultimedia>
+#include <QtMultimedia>
 #include <QtCore>
 #include <QtWidgets>
 #include <QDebug>
+
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -41,6 +44,8 @@ private slots:
 
     void on_postbtn_clicked();
 
+    void onAudioDevicesChanged();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *mp;
@@ -51,5 +56,8 @@ private:
     int mp3index;
     QString *mp3dir;
     int volumenum;
+
+    QMediaDevices *device;
+
 };
 #endif // MAINWINDOW_H

@@ -25,7 +25,7 @@ void MainWindow::listFile(QString mp3dir){
         if(str != "." && str != ".."){
             str = mp3dir + QDir::separator() + str;
             if(isDir(str)){
-                if (str != "store"){
+                if (!str.endsWith("/store")){
                     listFile(str);
                 }
             }else {
@@ -91,8 +91,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(mp, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::onMediaStatusChanged);
 
+    device = new QMediaDevices();
 
+    connect(device, &QMediaDevices::audioOutputsChanged,
+            this, &MainWindow::onAudioDevicesChanged);
 
+    //qInfo() << "ssssssss";
+    //qInfo() << "start device:" << QMediaDevices::defaultAudioOutput().id();
 
 }
 
@@ -104,6 +109,7 @@ MainWindow::~MainWindow()
     delete musicList;
     delete mp3dir;
     delete settings;
+    delete device;
 }
 
 void MainWindow::playtheaudio(){
@@ -194,7 +200,7 @@ void MainWindow::onMediaStatusChanged(QMediaPlayer::MediaStatus status)
         if(mp3index < (musicList->size() - 1)){
             mp3index += 1;
         }else {
-            mp3index = 1;
+            mp3index = 0;
         }
         playtheaudio();
     }
@@ -221,8 +227,20 @@ void MainWindow::on_postbtn_clicked()
     if(mp3index < (musicList->size() - 1)){
         mp3index += 1;
     }else {
-        mp3index = 1;
+        mp3index = 0;
     }
     playtheaudio();
 }
+
+void MainWindow::onAudioDevicesChanged()
+{
+    //qInfo() << "default audio changed............";
+    on_pausebtn_clicked();
+    delete ao;
+    ao = new QAudioOutput(QMediaDevices::defaultAudioOutput(), this);
+    mp->setAudioOutput(ao);
+    //qInfo() << "changed to device:" << QMediaDevices::defaultAudioOutput().id();
+}
+
+
 
