@@ -1,0 +1,17 @@
+pkgname=niko
+pkgver=4.0
+pkgrel=1
+pkgdesc="mp3 player"
+arch=('any')
+
+depends=("qt6-base" "qt6-declarative" "qt6-multimedia" "qt6-multimedia-ffmpeg" "qt6-svg")
+package() {
+  install -d "$pkgdir/opt/niko"
+  install -d "$pkgdir/usr/share/applications/"
+  install -d "$pkgdir/usr/share/icons/hicolor/32x32/apps/"
+  install -d "$pkgdir/usr/share/icons/hicolor/128x128/apps/"
+  cp -rf "/repo/qt/qtProject/mp3-player-qt/bundle/pkg/opt/" "$pkgdir"
+  install -m644 "/repo/qt/qtProject/mp3-player-qt/bundle/pkg/niko.desktop" "$pkgdir/usr/share/applications/"
+  install -m644 "/repo/qt/qtProject/mp3-player-qt/bundle/pkg/32niko.png" "$pkgdir/usr/share/icons/hicolor/32x32/apps/niko.png"
+  install -m644 "/repo/qt/qtProject/mp3-player-qt/bundle/pkg/128niko.png" "$pkgdir/usr/share/icons/hicolor/128x128/apps/niko.png"
+}

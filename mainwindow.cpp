@@ -63,8 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
     mp3index = 0;
 
 
-    settings = new QSettings("niko-robin-player");
-    //settings->setValue("cnm","cnnn");
+    settings = new QSettings("carpenter-production", "niko-robin-player");
     mp3dir = new QString(settings->value("mp3dir").toString());
     if(mp3dir->isEmpty()){
         ui->ed->setText("pls choose a mp3 resource folder to kick off.");
