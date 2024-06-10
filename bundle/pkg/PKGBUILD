@@ -1,5 +1,5 @@
 pkgname=niko
-pkgver=4.0
+pkgver=4.1
 pkgrel=1
 pkgdesc="mp3 player"
 arch=('any')

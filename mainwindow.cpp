@@ -37,7 +37,14 @@ void MainWindow::listFile(QString mp3dir){
     }
 }
 
-
+void loadStyleSheet(const QString &sheetName, QWidget *widget) {
+    QFile file(sheetName);
+    if (file.open(QFile::ReadOnly)) {
+        QTextStream stream(&file);
+        QString styleSheet = stream.readAll();
+        widget->setStyleSheet(styleSheet);
+    }
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -97,8 +104,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     //qInfo() << "ssssssss";
     //qInfo() << "start device:" << QMediaDevices::defaultAudioOutput().id();
+    loadStyleSheet(":/resources/sty.css", ui->centralwidget);
 
 }
+
+
 
 MainWindow::~MainWindow()
 {
